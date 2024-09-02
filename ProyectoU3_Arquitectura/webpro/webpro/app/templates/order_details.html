@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Ordenes{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Ordenes</h3>
+    </div>
+
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Precio</th>
+          <th>Precio Total</th>
+          <th>Nombre Producto</th>
+          <th>IVA</th>
+          <th>Fecha Orden</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in orders %}
+        <tr>
+          <td>{{ product.user_name}}</td>
+          <td>{{ product.product_price }}</td>
+          <td>{{ product.product_total_price }}</td>
+          <td>{{ product.product_name }}</td>
+          <td>{{ product.product_iva }}</td>
+          <td>{{ product.order_date }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Usuario</th>
+            <th>Precio</th>
+            <th>Precio Total</th>
+            <th>Nombre Producto</th>
+            <th>IVA</th>
+            <th>Fecha Orden</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+{% endblock %}

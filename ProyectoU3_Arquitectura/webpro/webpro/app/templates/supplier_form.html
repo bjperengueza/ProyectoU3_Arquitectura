@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ action }} Proveedor{% endblock %}
+
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">{{ action }} Proveedor</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form id="quickForm" method="POST" action="{{ url_for('proveedores_routes.create_supplier') if action == 'Crear' else url_for('proveedores_routes.edit_supplier', id=supplier.id) }}">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="name">Nombre del Proveedor</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Ingresa el nombre del proveedor" value="{{ supplier.name if supplier else '' }}" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact_name">Nombre del Contacto</label>
+                  <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Ingresa el nombre del contacto" value="{{ supplier.contact_name if supplier else '' }}" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact_email">Email del Contacto</label>
+                  <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="Ingresa el email del contacto" value="{{ supplier.contact_email if supplier else '' }}" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Teléfono</label>
+                  <input type="text" name="phone" class="form-control" id="phone" placeholder="Ingresa el teléfono" value="{{ supplier.phone if supplier else '' }}" required>
+                </div>
+                <div class="form-group">
+                  <label for="address">Dirección</label>
+                  <input type="text" name="address" class="form-control" id="address" placeholder="Ingresa la dirección" value="{{ supplier.address if supplier else '' }}" required>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">{{ action }} Proveedor</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+{% endblock %}

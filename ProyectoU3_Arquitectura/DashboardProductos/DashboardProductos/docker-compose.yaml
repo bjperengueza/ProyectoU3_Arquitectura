@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: dash-containerdash 
+    ports:
+      - "4600:4600"
+    environment:
+      - FLASK_ENV=development

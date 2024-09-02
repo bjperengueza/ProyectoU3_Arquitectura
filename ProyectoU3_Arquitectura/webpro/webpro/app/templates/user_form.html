@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Create User{% endblock %}
+
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Create User</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <!-- Configura el formulario para enviar los datos a la ruta correcta -->
+            <form id="quickForm" method="POST" action="{{ url_for('users_routes.create_user') }}">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Create User</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+{% endblock %}

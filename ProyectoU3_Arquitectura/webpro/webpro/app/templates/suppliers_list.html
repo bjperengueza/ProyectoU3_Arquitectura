@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Proveedores{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Proveedores</h3>
+    </div>
+    <a href="{{ url_for('proveedores_routes.create_supplier') }}" style="width: 20%; margin-top: 25px; margin-left: 25px;" type="button" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+      <p style="margin-left: 25px; margin-top: 20px;" >
+        Crear Proveedor
+      </p>
+    </a>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th>Nombre Contacto</th>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Acciones</th> <!-- Nueva columna para acciones -->
+        </tr>
+        </thead>
+        <tbody>
+        {% for supplier in suppliers %}
+        <tr>
+          <td>{{ supplier.contact_email }}</td>
+          <td>{{ supplier.contact_name }}</td>
+          <td>{{ supplier.name }}</td>
+          <td>{{ supplier.phone }}</td>
+          <td>{{ supplier.address }}</td>
+          <td>
+            <!-- Botón para redirigir al formulario de edición -->
+            <a href="{{ url_for('proveedores_routes.edit_supplier', id=supplier.id) }}" class="btn btn-warning btn-sm"><i class="fas fa-plus"></i></a>
+
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Email</th>
+            <th>Nombre Contacto</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+{% endblock %}

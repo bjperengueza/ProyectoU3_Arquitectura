@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask-container  
+    ports:
+      - "4400:4400"
+    environment:
+      - FLASK_ENV=development
+      - MYSQL_HOST=mysql-container  
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DB=flet_crud_db
+  

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Product List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Price Total</th>
+          <th>IVA</th>
+          <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.price_total }}</td>
+          <td>{{ product.iva }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Price Total</th>
+          <th>IVA</th>
+          <th>Quantity</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+{% endblock %}
